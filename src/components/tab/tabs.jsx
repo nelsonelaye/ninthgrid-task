@@ -56,7 +56,9 @@ const Tabs = () => {
 
   return (
     <div className="w-full">
-      <Button text="Logout" color="bg-red-100" />
+      <div className="hidden md:block">
+        <Button text="Logout" color="bg-red-100" />
+      </div>
       <MantineTabs
         value={activeTab}
         color="transparent"
@@ -99,7 +101,7 @@ const Tabs = () => {
                   <MantineTabs.Tab
                     key={e.id}
                     value={`${e.id}`}
-                    className="!p-0 mr-[40px] hover:!bg-transparent hover:!border-transparent"
+                    className="!p-0 mb-2 mr-[40px] hover:!bg-transparent hover:!border-transparent"
                   >
                     <Radio
                       text={e.value}
@@ -115,7 +117,7 @@ const Tabs = () => {
                 </div>
               </MantineTabs.Panel>
               <MantineTabs.Panel value="2">
-                <div className="w-full my-7 grid grid-cols-2 gap-[40px]">
+                <div className="w-full my-7 md:grid grid-cols-2 gap-[40px]">
                   <Input label="Account Number" />
                   <Input label="Select Bank" variant="select" options={banks} />
                 </div>
@@ -138,15 +140,15 @@ const Tabs = () => {
             title="Social Handles"
             subTitle="Enter your business social media handles"
           >
-            <div className="my-7 grid grid-rows-2 gap-[26px]">
-              <div className="grid grid-cols-2 gap-[40px]">
+            <div className="my-5 md:grid grid-rows-2 gap-[26px]">
+              <div className="md:grid grid-cols-2 gap-[40px]">
                 <Input
                   label="Choose your Abeg Tag (required)"
                   prefixIcon={mailIcon}
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-[40px]">
+              <div className="md:grid grid-cols-2 gap-[40px]">
                 <Input label="Instagram" prefixIcon={mailIcon} />
                 <Input label="Twitter" prefixIcon={mailIcon} />
               </div>
@@ -165,7 +167,7 @@ const Tabs = () => {
 
         <MantineTabs.Panel value="3">
           <Tab id={3} title=" Business Category">
-            <div className="my-7 grid grid-cols-2 gap-[40px]">
+            <div className="my-5 md:grid grid-cols-2 gap-[40px]">
               <Input
                 label="Type of your business"
                 variant="select"
@@ -178,7 +180,7 @@ const Tabs = () => {
               />
             </div>
 
-            <div>
+            <div className="mb-10 md:m-0">
               <span className="label">
                 Do you use POS machines for your business?
               </span>
@@ -199,6 +201,7 @@ const Tabs = () => {
                 />
               </div>
             </div>
+
             <div className="divider" />
 
             <Button text="Complete" />

@@ -10,7 +10,7 @@ const CustomInput = ({ label, prefixIcon, variant, width, options }) => {
     }
   };
   return (
-    <div>
+    <div className="mb-4">
       <label className="label">{label}</label>
       <div
         className={`flex items-center rounded-xl p-4  border-[1px] border-grey-border border-solid ${

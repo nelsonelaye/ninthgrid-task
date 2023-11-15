@@ -21,7 +21,7 @@
   }
 
   .divider {
-    @apply border-[1px] border-grey-border mt-10 mb-2;
+    @apply hidden md:block border-[1px] border-grey-border mt-10 mb-2;
   }
 
   select {
