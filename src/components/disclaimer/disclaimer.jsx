@@ -17,7 +17,7 @@ const Disclaimer = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className={`p-5 rounded-[5px] ${isOpen && "bg-grey-disclaimer"}`}>
+    <div className={`p-5 mb-3 rounded-[5px] ${isOpen && "bg-grey-disclaimer"}`}>
       <div className="flex items-center">
         <img src={lock} alt="lock" className="mr-3" />
         <span className="font-medium text-3sm">Why we need your BVN</span>
