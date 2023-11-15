@@ -1,14 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import dropdown from "../../assets/svgs/drop_down.svg";
 
 const CustomInput = ({ label, prefixIcon, variant, width, options }) => {
-  const selectRef = useRef(null);
-
-  const handleImageClick = () => {
-    if (selectRef.current) {
-      selectRef.current.click(); // Programmatically trigger the click event on the select element
-    }
-  };
   return (
     <div className="mb-4">
       <label className="label">{label}</label>
@@ -25,7 +18,6 @@ const CustomInput = ({ label, prefixIcon, variant, width, options }) => {
             <select
               className="bg-transparent border-0 outline-none h-full w-full"
               id="select-dropdown"
-              ref={selectRef}
             >
               <option selected />
               {options?.map((option) => (
@@ -40,7 +32,6 @@ const CustomInput = ({ label, prefixIcon, variant, width, options }) => {
               alt="arrow drop down icon"
               className="mr-2 cursor-pointer"
               aria-controls="select-dropdown"
-              onClick={handleImageClick}
             />
           </>
         ) : (

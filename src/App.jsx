@@ -2,7 +2,7 @@ import { Onboarding } from "./routes";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Onboarding />
     </div>
   );

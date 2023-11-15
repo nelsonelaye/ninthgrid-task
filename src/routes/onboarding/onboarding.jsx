@@ -8,7 +8,7 @@ const Onboarding = () => {
       <div className="hidden h-screen bg-[#F3E8C9] w-full md:flex items-center justify-center">
         <img src={unwrap} alt="onboarding" className="" />
       </div>
-      <div className="h-full w-full px-5 pt-28 flex justify-center md:pt-20 md:px-10 lg:px-16">
+      <div className="h-full w-full px-5 pt-28 flex justify-center md:pt-20 md:px-10 lg:px-16 overflow-y-auto ">
         <Tabs />
       </div>
     </div>

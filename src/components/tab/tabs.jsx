@@ -2,57 +2,26 @@ import React, { useState } from "react";
 import Tab from "./tab";
 import { Tabs as MantineTabs } from "@mantine/core";
 import TabControl from "./tabControl";
-import { Button, Input, Radio } from "..";
+import { Disclaimer, Button, Input, Radio } from "..";
 import mailIcon from "../../assets/svgs/mail.svg";
+import {
+  banks,
+  businessTypes,
+  categories,
+  methodList,
+  tabList,
+} from "./utils/data";
+import { useGetTodo } from "../../hooks/useGetTodo";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("1");
   const [verifyTab, setVerifyTab] = useState("1");
   const [posOptions, setPosOptions] = useState("yes");
 
-  const tabList = [
-    {
-      id: 1,
-      value: "Verify Account",
-    },
-    {
-      id: 2,
-      value: "Social Handles",
-    },
-    {
-      id: 3,
-      value: "Business Category",
-    },
-  ];
-
-  const methodList = [
-    {
-      id: 1,
-      value: "BVN",
-    },
-    {
-      id: 2,
-      value: "Personal Account Number",
-    },
-  ];
-
-  const banks = [
-    { id: 1, value: "UBA" },
-    { id: 2, value: "Zenith" },
-    { id: 3, value: "Stanbic IBTC" },
-  ];
-
-  const businessTypes = [
-    { id: 1, value: "Drug" },
-    { id: 2, value: "Agriculture" },
-    { id: 3, value: "IT outsourcing" },
-  ];
-
-  const categories = [
-    { id: 1, value: "Category 1" },
-    { id: 2, value: "Category 2" },
-    { id: 3, value: "Cat3gory 3" },
-  ];
+  const { data, isLoading, isSuccess, isError, refetch } = useGetTodo(
+    "https://jsonplaceholder.typicode.com/todos",
+    "todo"
+  );
 
   return (
     <div className="w-full">
@@ -115,6 +84,8 @@ const Tabs = () => {
                 <div className="my-7">
                   <Input label="Bank Verification Number (11-digits)" />
                 </div>
+
+                <Disclaimer />
               </MantineTabs.Panel>
               <MantineTabs.Panel value="2">
                 <div className="w-full my-7 md:grid grid-cols-2 gap-[40px]">
@@ -202,9 +173,24 @@ const Tabs = () => {
               </div>
             </div>
 
+            {isSuccess && data ? (
+              <div className="mt-2 font-medium">
+                Query result: {data.length} todos
+              </div>
+            ) : isLoading ? (
+              "Loading..."
+            ) : isError ? (
+              "Error!!!"
+            ) : null}
+
             <div className="divider" />
 
-            <Button text="Complete" />
+            <Button
+              text={isLoading ? "fecthing..." : "Complete"}
+              onclick={() => {
+                refetch();
+              }}
+            />
           </Tab>
         </MantineTabs.Panel>
       </MantineTabs>
